@@ -40,4 +40,3 @@ namespace HomeworkNo1.Models
         public virtual 客戶資料 客戶資料 { get; set; }
     }
 }
-

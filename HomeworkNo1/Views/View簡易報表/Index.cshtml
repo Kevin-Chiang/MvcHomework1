@@ -1,0 +1,30 @@
+﻿@model IEnumerable<HomeworkNo1.Models.View簡易報表>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>簡易報表</h2>
+
+<table class="table">
+    <tr>
+        <th>客戶名稱</th>
+        <th>聯絡人數量</th>
+        <th>銀行帳戶數量</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.客戶名稱
+        </td>
+        <td>
+            @item.ContactCnt
+        </td>
+        <td>
+            @item.BankCnt
+        </td>
+    </tr>
+}
+
+</table>
