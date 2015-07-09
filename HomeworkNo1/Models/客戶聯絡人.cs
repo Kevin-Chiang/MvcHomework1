@@ -12,6 +12,7 @@ namespace HomeworkNo1.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
     
     public partial class 客戶聯絡人
     {
@@ -29,6 +30,7 @@ namespace HomeworkNo1.Models
         [Required(ErrorMessage = "請輸入 EMail！")]
         [StringLength(250, ErrorMessage = "EMail 最多輸入 250 個字！")]
         [RegularExpression(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "EMail 格式錯誤！")]
+        [Remote("CheckRepeatEMail", "Validate", AdditionalFields = "客戶Id", ErrorMessage = "同一個客戶的聯絡人 EMail 重覆！")]
         public string Email { get; set; }
 
         [RegularExpression(@"09\d{2}-\d{6}", ErrorMessage = "手機格式為 0912-345678！")]
