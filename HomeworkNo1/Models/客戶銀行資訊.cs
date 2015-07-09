@@ -36,6 +36,8 @@ namespace HomeworkNo1.Models
         [Required(ErrorMessage = "請輸入帳戶號碼！")]
         [StringLength(20, ErrorMessage = "帳戶名稱不可超過 20 個字！")]
         public string 帳戶號碼 { get; set; }
+
+        public bool 是否已刪除 { get; set; }
     
         public virtual 客戶資料 客戶資料 { get; set; }
     }

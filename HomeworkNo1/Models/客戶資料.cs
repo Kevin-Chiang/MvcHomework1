@@ -46,6 +46,8 @@ namespace HomeworkNo1.Models
         [StringLength(250, ErrorMessage = "EMail 最多輸入 250 個字！")]
         [RegularExpression(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "EMail 格式錯誤！")]
         public string Email { get; set; }
+
+        public bool 是否已刪除 { get; set; }
     
         public virtual ICollection<客戶銀行資訊> 客戶銀行資訊 { get; set; }
         public virtual ICollection<客戶聯絡人> 客戶聯絡人 { get; set; }
