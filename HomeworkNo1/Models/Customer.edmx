@@ -25,8 +25,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="客戶Id" Type="int" Nullable="false" />
           <Property Name="銀行名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="銀行代碼" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="分行代碼" Type="varchar" MaxLength="10" />
+          <Property Name="銀行代碼" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="分行代碼" Type="varchar" MaxLength="4" />
           <Property Name="帳戶名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="帳戶號碼" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="是否已刪除" Type="bit" Nullable="false" />
@@ -129,8 +129,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="客戶Id" Type="Int32" Nullable="false" />
           <Property Name="銀行名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="銀行代碼" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="分行代碼" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="銀行代碼" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="分行代碼" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="帳戶名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="帳戶號碼" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="客戶資料" Relationship="Self.FK_客戶銀行資訊_客戶資料" FromRole="客戶銀行資訊" ToRole="客戶資料" />

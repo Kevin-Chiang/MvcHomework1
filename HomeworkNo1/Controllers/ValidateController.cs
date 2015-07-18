@@ -11,7 +11,7 @@ namespace HomeworkNo1.Controllers
     {
         private 客戶資料Entities db = new 客戶資料Entities();
 
-        public JsonResult CheckRepeatEMail(int 客戶Id, string Email)
+        public JsonResult CheckRepeatEMail(int? Id, int 客戶Id, string Email)
         {
             bool IsValidate = false;
 
@@ -24,20 +24,29 @@ namespace HomeworkNo1.Controllers
                                   .Where(Contact => Contact.客戶Id == 客戶Id && Contact.Email == Email);
 
             //﹝判斷﹞有沒有重覆 EMail 的聯絡人
-            if (ContactRepeat.Count() >= 1)
-            {
-                // EMail 重覆
-                IsValidate = false;
-            }
-            else
+            if (ContactRepeat.Count() == 0 || (ContactRepeat.Count() == 1 && ContactRepeat.FirstOrDefault().Id == Id))
             {
                 // EMail 沒有重覆
                 IsValidate = true;
+            }
+            else
+            {
+                // EMail 重覆
+                IsValidate = false;
             }
 
             //}
 
             return Json(IsValidate, JsonRequestBehavior.AllowGet);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
