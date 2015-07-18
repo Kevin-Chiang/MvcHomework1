@@ -12,19 +12,32 @@ namespace HomeworkNo1.Controllers
 {
     public class View簡易報表Controller : Controller
     {
-        private 客戶資料Entities db = new 客戶資料Entities();
+        //private 客戶資料Entities db = new 客戶資料Entities();
+        private View簡易報表Repository repo = RepositoryHelper.GetView簡易報表Repository();
 
         // GET: View簡易報表
         public ActionResult Index()
         {
-            return View(db.View簡易報表.ToList());
+            return View(repo.All());
+        }
+
+        public ActionResult Excel()
+        {
+            if (Request.Browser.Browser == "IE" && Convert.ToInt32(Request.Browser.MajorVersion) < 9)
+            {
+                return File(repo.Excel(), "application/vnd.ms-excel", Server.UrlPathEncode("簡易報表.xls"));
+            }
+            else
+            {
+                return File(repo.Excel(), "application/vnd.ms-excel", "簡易報表.xls");
+            }
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                ((客戶資料Entities)repo.UnitOfWork.Context).Dispose();
             }
             base.Dispose(disposing);
         }

@@ -50,13 +50,11 @@
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="客戶名稱" />
-            <PropertyRef Name="ContactCnt" />
-            <PropertyRef Name="BankCnt" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="客戶名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ContactCnt" Type="int" Nullable="false" />
-          <Property Name="BankCnt" Type="int" Nullable="false" />
+          <Property Name="ContactCnt" Type="int" />
+          <Property Name="BankCnt" Type="int" />
         </EntityType>
         <Association Name="FK_客戶銀行資訊_客戶資料">
           <End Role="客戶資料" Type="Self.客戶資料" Multiplicity="1" />
@@ -192,13 +190,11 @@
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="客戶名稱" />
-            <PropertyRef Name="ContactCnt" />
-            <PropertyRef Name="BankCnt" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="客戶名稱" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactCnt" Type="Int32" Nullable="false" />
-          <Property Name="BankCnt" Type="Int32" Nullable="false" />
+          <Property Name="ContactCnt" Type="Int32" />
+          <Property Name="BankCnt" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
