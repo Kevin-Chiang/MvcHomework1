@@ -1,81 +1,86 @@
 ﻿@model HomeworkNo1.Models.客戶資料
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "客戶資料修改";
 }
 
-<h2>Edit</h2>
-
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>客戶資料</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<!-- Horizontal Form -->
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">客戶資料修改</h3>
+    </div><!-- /.box-header -->
+    <!-- form start -->
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            <div class="box-body">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.客戶名稱, htmlAttributes: new { @for = "tb客戶名稱", @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.客戶名稱, new { htmlAttributes = new { id = "tb客戶名稱", @class = "form-control", placeholder = "客戶名稱" } })
+                        @Html.ValidationMessageFor(model => model.客戶名稱, "", new { @class = "text-red" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.統一編號, htmlAttributes: new { @for = "tb統一編號", @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.統一編號, new { htmlAttributes = new { id = "tb統一編號", @class = "form-control", placeholder = "統一編號" } })
+                        @Html.ValidationMessageFor(model => model.統一編號, "", new { @class = "text-red" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.電話, htmlAttributes: new { @for = "tb電話", @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.電話, new { htmlAttributes = new { id = "tb電話", @class = "form-control", placeholder = "電話" } })
+                        @Html.ValidationMessageFor(model => model.電話, "", new { @class = "text-red" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.傳真, htmlAttributes: new { @for = "tb傳真", @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.傳真, new { htmlAttributes = new { id = "tb傳真", @class = "form-control", placeholder = "傳真" } })
+                        @Html.ValidationMessageFor(model => model.傳真, "", new { @class = "text-red" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.地址, htmlAttributes: new { @for = "tb地址", @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.地址, new { htmlAttributes = new { id = "tb地址", @class = "form-control", placeholder = "地址" } })
+                        @Html.ValidationMessageFor(model => model.地址, "", new { @class = "text-red" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @for = "tbEmail", @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { id = "tbEmail", @class = "form-control", placeholder = "Email" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-red" })
+                    </div>
+                </div>
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <a href="@Url.Action("Index")" class="btn btn-default">取消</a>
+                <button type="submit" class="btn btn-info pull-right">修改</button>
+            </div><!-- /.box-footer -->
+        </div>
         @Html.HiddenFor(model => model.Id)
+    }
+</div><!-- /.box -->
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.客戶名稱, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.客戶名稱, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.客戶名稱, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.統一編號, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.統一編號, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.統一編號, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.電話, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.電話, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.電話, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.傳真, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.傳真, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.傳真, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.地址, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.地址, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.地址, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+@section breadcrumb{
+    <section class="content-header">
+        <h1>
+            客戶資料
+            <small>客戶是我們的衣食父母</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="~/"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="@Url.Action("Index", "客戶資料")">客戶資料</a></li>
+            <li class="active">資料修改</li>
+        </ol>
+    </section>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
